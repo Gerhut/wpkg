@@ -8,7 +8,7 @@ var S = require('string')
 var wpkg = require('../lib')
 
 commander
-  .version('0.0.1')
+  .version('0.0.2')
   .arguments('<query>')
   .option('-m, --max <max>', 'Max results limit [10]', parseInt, 10)
   .action(function (query, options) {
