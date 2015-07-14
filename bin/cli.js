@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 var commander = require('commander')
+var chalk = require('chalk')
+var S = require('string')
 
 var wpkg = require('../lib')
 
@@ -9,7 +11,9 @@ commander
   .arguments('<query>')
   .action(function (query) {
     wpkg(query).on('package', function (package) {
-      console.log(package.name, package.description)
+      console.log(
+        chalk.bgRed(package.name),
+        S(package.description).replaceAll(query, chalk.red(query)).s)
     }).on('error', function (error) {
       console.err(error)
     })
