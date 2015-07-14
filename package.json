@@ -1,0 +1,35 @@
+{
+  "name": "wpkg",
+  "version": "0.0.1",
+  "description": "Search most used npm packages.",
+  "main": "lib/index.js",
+  "bin": "bin/cli.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gerhut/wpkg"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "search",
+    "command"
+  ],
+  "author": "George Chung <Gerhut@GMail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gerhut/wpkg/issues"
+  },
+  "homepage": "https://github.com/Gerhut/wpkg",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "commander": "^2.8.1",
+    "request": "^2.58.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^7.0.2"
+  }
+}
