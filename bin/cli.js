@@ -3,15 +3,14 @@
 var _ = require('lodash')
 var commander = require('commander')
 var chalk = require('chalk')
-var S = require('string')
 
 var wpkg = require('../lib')
 var package = require('../package.json')
 
 function emphasize(queries, text) {
-  return _.reduce(queries, function (Stext, query) {
-    return Stext.replaceAll(query, chalk.bgRed(query))
-  }, S(text)).s
+  return text.replace(
+    new RegExp(_.map(queries, _.escapeRegExp).join('|'), 'ig'),
+    _.ary(chalk.bgRed, 1))
 }
 
 commander
