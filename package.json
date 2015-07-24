@@ -1,6 +1,6 @@
 {
   "name": "wpkg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Search most used npm packages.",
   "main": "lib/index.js",
   "bin": "bin/cli.js",
