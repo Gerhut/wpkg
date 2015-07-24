@@ -6,19 +6,27 @@ var chalk = require('chalk')
 var S = require('string')
 
 var wpkg = require('../lib')
+var package = require('../package.json')
+
+function emphasize(queries, text) {
+  return _.reduce(queries, function (Stext, query) {
+    return Stext.replaceAll(query, chalk.bgRed(query))
+  }, S(text)).s
+}
 
 commander
-  .version('0.0.2')
-  .arguments('<query>')
+  .version(package.version)
+  .description(package.description)
+  .usage('[options] <queries ...>')
   .option('-m, --max <max>', 'Max results limit [10]', parseInt, 10)
-  .action(function (query, options) {
-    wpkg(query, _.pick(options, 'max')).on('package', function (package) {
-      console.log(
-        chalk.bgRed(package.name),
-        S(package.description).replaceAll(query, chalk.red(query)).s)
-    }).on('error', function (error) {
-      console.err(error)
-    })
-  })
+  .parse(process.argv)
 
-commander.parse(process.argv)
+var queries = commander.args
+var options = _.pick(commander, 'max')
+wpkg(queries, options).on('package', function (package) {
+  console.log('%s\t%s',
+    chalk.bold(emphasize(queries, package.name)),
+    emphasize(queries, package.description))
+}).on('error', function (error) {
+  console.err(error)
+})
