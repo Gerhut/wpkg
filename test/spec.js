@@ -6,7 +6,7 @@ describe('wpkg', function () {
   this.timeout(10000)
 
   it('should search packages whose name or description include query', function (done) {
-    var queries = ['promise', 'lib']
+    var queries = ['of', 'the']
     wpkg(queries).once('package', function (package) {
       ;[
         package.name,
