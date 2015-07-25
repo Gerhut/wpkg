@@ -7,13 +7,13 @@ Search most used npm packages.
 
 ## Commend Line Usage
 
-    $ wpkg cache
+    $ wpkg web cache
 
 ## Node JS Usage
 
 ```js
 var wpkg = require('wpkg')
-wpkg('cache').on('package', function (package) {
+wpkg(['web', 'cache']).on('package', function (package) {
   console.log(package.name, package.description)
 }).on('error', function (err) {
   console.err(err.message)
