@@ -1,4 +1,6 @@
 # wpkg (Which Package?)
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Gerhut/wpkg.svg)](https://greenkeeper.io/)
 Search most used npm packages.
 
 ## Install
