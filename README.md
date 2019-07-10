@@ -1,3 +1,5 @@
+Deprecated: please use <https://npms.io/> instead.
+
 # wpkg (Which Package?)
 Search most used npm packages.
 
